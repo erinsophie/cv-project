@@ -60,10 +60,52 @@ h6 {
   width: 90%;
 }
 
-.add-btn {
-  width: 10%;
-  padding: 8px;
+button {
+  background-color: transparent;
+  border: 1px solid #444440;
+  border-radius: 6px;
 }
+
+.open-form-btn {
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.add-btn {
+  font-size: 1.4rem;
+  border: none;
+  padding: 3px;
+}
+
+/* skills section */
+
+.skills-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-form {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #444440;
+}
+
+/* education section */
+
+/* footer */
 
 .footer {
   margin-top: auto;
