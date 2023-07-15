@@ -56,7 +56,7 @@ h6 {
   margin-bottom: 30px;
   padding: 35px;
   color: #444440;
-  background-color: #fcfbf8;
+  background-color: #fffbee;
   width: 90%;
 }
 
@@ -74,7 +74,6 @@ button {
 .add-btn {
   font-size: 1.4rem;
   border: none;
-  padding: 3px;
 }
 
 /* skills section */
@@ -91,9 +90,10 @@ button {
   margin-top: 10px;
 }
 
-.skills-list {
+.info {
   display: flex;
   flex-direction: column;
+  width: 60%;
 }
 
 .skills-form input {
@@ -104,6 +104,26 @@ button {
 }
 
 /* education section */
+
+.education-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.education-form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.education-form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #444440;
+}
 
 /* footer */
 

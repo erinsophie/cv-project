@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-function SkillsForm({ addSkill }) {
+function Skills({ addSkill }) {
   const [currentSkill, setCurrentSkill] = useState("");
 
-  function handleSkillChange(event) {
+  function handleInput(event) {
     setCurrentSkill(event.target.value);
   }
 
@@ -19,17 +19,13 @@ function SkillsForm({ addSkill }) {
     <form className="skills-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Add 5 of your top skills"
+        placeholder="Add 5 of your skills"
         value={currentSkill}
-        onChange={handleSkillChange}
+        onChange={handleInput}
       />
       <button className="add-btn">+</button>
     </form>
   );
 }
 
-export default SkillsForm;
-
-//name
-//onChange={}
-//value={}
+export default Skills;
