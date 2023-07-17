@@ -43,7 +43,7 @@ function Contact() {
 
       <div className="contact-data">
         <div>
-          <i class="fa-solid fa-envelope"></i>
+          <i className="fa-solid fa-envelope"></i>
           <input
             type="email"
             name="email"
@@ -54,7 +54,7 @@ function Contact() {
         </div>
 
         <div>
-          <i class="fa-solid fa-phone"></i>
+          <i className="fa-solid fa-phone"></i>
           <input
             type="text"
             name="number"
@@ -65,7 +65,7 @@ function Contact() {
         </div>
 
         <div>
-          <i class="fa-solid fa-location-dot"></i>
+          <i className="fa-solid fa-location-dot"></i>
           <input
             type="text"
             name="location"

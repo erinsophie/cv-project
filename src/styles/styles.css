@@ -67,10 +67,6 @@ h6 {
   font-weight: 500;
 }
 
-.list > li {
-  padding: 5px;
-}
-
 button {
   background-color: transparent;
   border: 1px solid #444440;
@@ -85,6 +81,14 @@ button {
 .add-btn {
   padding: 8px;
   font-size: 0.8rem;
+}
+
+.delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
 }
 
 /* contact section */
@@ -156,6 +160,12 @@ button {
   border: none;
   outline: none;
   border-bottom: 1px solid #444440;
+}
+
+.skills-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }
 
 .skills-info {
@@ -251,6 +261,10 @@ button {
   flex-direction: column;
   margin-left: 5%;
   gap: 25px;
+}
+
+.duties-list {
+  padding: 5px;
 }
 
 .work-component {
