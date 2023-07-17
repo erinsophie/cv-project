@@ -7,19 +7,27 @@ function Education({ addEducation }) {
     field: "",
     dateFrom: "",
     dateUntil: "",
+    stillStudying: false,
   });
   const [isOpen, setIsOpen] = useState(false);
 
   function handleInput(event) {
-    const { name, value } = event.target;
+    const { name, value, type, checked } = event.target;
     setEducationData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: type === "checkbox" ? checked : value,
     }));
   }
 
   function clearData() {
-    return { school: "", degree: "", field: "", dateFrom: "", dateUntil: "" };
+    return {
+      school: "",
+      degree: "",
+      field: "",
+      dateFrom: "",
+      dateUntil: "",
+      stillStudying: "",
+    };
   }
 
   function handleSubmit(event) {
@@ -56,7 +64,7 @@ function Education({ addEducation }) {
             value={educationData.degree}
             onChange={handleInput}
           >
-            <option></option>
+            <option>--Select an option--</option>
             <option value="high school or equivalent">
               High school or equivalent
             </option>
@@ -76,22 +84,43 @@ function Education({ addEducation }) {
             onChange={handleInput}
           />
 
-          <label htmlFor="date-from">Dates attended</label>
+          <label htmlFor="dates">Dates attended</label>
           <div className="date-container">
-            <input
-              type="date"
-              id="date-from"
-              name="dateFrom"
-              value={educationData.dateFrom}
-              onChange={handleInput}
-            />
-            <input
-              type="date"
-              id="date-until"
-              name="dateUntil"
-              value={educationData.dateUntil}
-              onChange={handleInput}
-            />
+            <div>
+              <p>From:</p>
+              <input
+                type="date"
+                id="dates"
+                name="dateFrom"
+                value={educationData.dateFrom}
+                onChange={handleInput}
+              />
+            </div>
+
+            <div>
+              <p>Until:</p>
+              {!educationData.stillStudying && (
+                <input
+                  type="date"
+                  name="dateUntil"
+                  value={educationData.dateUntil}
+                  onChange={handleInput}
+                />
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="stillStudying">
+                I am currently studying here
+              </label>
+              <input
+                type="checkbox"
+                id="stillStudying"
+                name="stillStudying"
+                checked={educationData.stillStudying}
+                onChange={handleInput}
+              />
+            </div>
           </div>
 
           <button className="add-btn">Add</button>

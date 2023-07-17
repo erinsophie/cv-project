@@ -132,6 +132,7 @@ button {
   outline: none;
   border-bottom: 1px solid #444440;
 }
+
 .education-form select {
   background-color: transparent;
   border: none;
@@ -141,7 +142,13 @@ button {
 
 .date-container {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 20px;
+}
+
+.date-container div {
+  display: flex;
+  gap: 5px;
 }
 
 .education-form button {
