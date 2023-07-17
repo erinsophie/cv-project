@@ -42,35 +42,25 @@ function Education({ addEducation }) {
     setEducationData(clearData);
   }
 
-  console.log(educationData);
-
   return (
     <div>
       {isOpen && (
         <form className="education-form" onSubmit={handleSubmit}>
-          <label htmlFor="school">School</label>
-          <input
-            type="text"
-            id="school"
-            name="school"
-            value={educationData.school}
-            onChange={handleInput}
-          />
-
           <label htmlFor="degree">Degree awarded</label>
           <select
             id="degree"
             name="degree"
             value={educationData.degree}
             onChange={handleInput}
+            required
           >
             <option>--Select an option--</option>
             <option value="high school or equivalent">
               High school or equivalent
             </option>
             <option value="associate">Associate</option>
-            <option value="bachelors">Bachelor's</option>
-            <option value="masters">Masters</option>
+            <option value="bachelor's">Bachelor's</option>
+            <option value="master's">Master's</option>
             <option value="doctorate">Doctorate</option>
             <option value="other">Other</option>
           </select>
@@ -82,6 +72,17 @@ function Education({ addEducation }) {
             name="field"
             value={educationData.field}
             onChange={handleInput}
+            required
+          />
+
+          <label htmlFor="school">School</label>
+          <input
+            type="text"
+            id="school"
+            name="school"
+            value={educationData.school}
+            onChange={handleInput}
+            required
           />
 
           <label htmlFor="dates">Dates attended</label>
@@ -94,6 +95,7 @@ function Education({ addEducation }) {
                 name="dateFrom"
                 value={educationData.dateFrom}
                 onChange={handleInput}
+                required
               />
             </div>
 
@@ -105,6 +107,7 @@ function Education({ addEducation }) {
                   name="dateUntil"
                   value={educationData.dateUntil}
                   onChange={handleInput}
+                  required
                 />
               )}
             </div>

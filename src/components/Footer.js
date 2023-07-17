@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="footer">
       <p>
-        Made by:{' '}
+        Built by:{' '}
         <a href="https://github.com/erinsophie" target="_blank">
           {' '}
           erinsophie
