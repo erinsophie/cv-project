@@ -1,25 +1,34 @@
 import React, { useState } from "react";
+import uniqid from "uniqid";
 
 function Skills({ addSkill }) {
-  const [currentSkill, setCurrentSkill] = useState("");
+  const [currentSkill, setCurrentSkill] = useState({
+    text: "",
+    id: uniqid(),
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   function handleInput(event) {
-    setCurrentSkill(event.target.value);
+    setCurrentSkill({
+      text: event.target.value,
+      id: currentSkill.id,
+    });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (currentSkill !== "") {
+    if (currentSkill.text !== "") {
       addSkill(currentSkill);
-      setCurrentSkill("");
+      setCurrentSkill({ text: "", id: uniqid() });
       handleFormToggle();
     }
   }
 
+  console.log(currentSkill)
+
   function handleFormToggle() {
     setIsOpen((prev) => !prev);
-    setCurrentSkill("");
+    setCurrentSkill({ text: "", id: uniqid() });
   }
 
   return (
@@ -29,7 +38,7 @@ function Skills({ addSkill }) {
           <input
             type="text"
             placeholder="Add 5 of your skills"
-            value={currentSkill}
+            value={currentSkill.text}
             onChange={handleInput}
           />
           <button className="add-btn">Add</button>

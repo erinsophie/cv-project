@@ -32,9 +32,9 @@ function Template() {
 
         {skills.length > 0 && (
           <div className="skills-info">
-            <ul className="skills-list">
-              {skills.map((skill, index) => (
-                <li key={index}>{capitalise(skill)}</li>
+            <ul className="list">
+              {skills.map((skill) => (
+                <li key={skill.id}>{capitalise(skill.text)}</li>
               ))}
             </ul>
           </div>
@@ -48,8 +48,8 @@ function Template() {
 
         {education.length > 0 && (
           <div className="education-info">
-            {education.map((info, index) => (
-              <div key={index} className="education-component">
+            {education.map((info) => (
+              <div key={info.id} className="education-component">
                 <p className="title">
                   {info.degree} | {info.field}
                 </p>
@@ -71,18 +71,18 @@ function Template() {
 
         {work.length > 0 && (
           <div className="work-info">
-            {work.map((info, index) => (
-              <div key={index} className="work-component">
+            {work.map((info) => (
+              <div key={info.id} className="work-component">
                 <p className="title">
                   {info.jobTitle} | ({info.dateFrom} -{" "}
                   {info.current ? "Current" : info.dateUntil})
                 </p>
                 <p>{info.company}</p>
-                
-                <ul>
-                {info.description.map(duty => {
-                  <li>{duty}</li>
-                })}
+
+                <ul className="list">
+                  {info.description.split("\n").map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
                 </ul>
               </div>
             ))}

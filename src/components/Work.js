@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import uniqid from "uniqid";
 
 function Work({ addWork }) {
   const [workData, setWorkData] = useState({
@@ -8,6 +9,7 @@ function Work({ addWork }) {
     current: false,
     company: "",
     description: "",
+    id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,6 +29,7 @@ function Work({ addWork }) {
       current: false,
       comapny: "",
       description: "",
+      id: uniqid(),
     };
   }
 
@@ -112,7 +115,7 @@ function Work({ addWork }) {
             name="description"
             rows={6}
             value={workData.description}
-            placeholder="Use enter after each responsibility to save as bullet points"
+            placeholder="Every new line will be formatted as a bullet point"
             onChange={handleInput}
           />
 

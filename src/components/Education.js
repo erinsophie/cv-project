@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import uniqid from "uniqid";
 
 function Education({ addEducation }) {
   const [educationData, setEducationData] = useState({
@@ -8,6 +9,7 @@ function Education({ addEducation }) {
     dateFrom: "",
     dateUntil: "",
     stillStudying: false,
+    id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,6 +29,7 @@ function Education({ addEducation }) {
       dateFrom: "",
       dateUntil: "",
       stillStudying: "",
+      id: uniqid(),
     };
   }
 
