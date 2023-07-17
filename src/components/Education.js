@@ -50,7 +50,7 @@ function Education({ addEducation }) {
         onChange={handleInput}
       />
 
-      <button className="add-btn" type="submit">
+      <button className="add-btn">
         +
       </button>
     </form>

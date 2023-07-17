@@ -64,6 +64,7 @@ button {
   background-color: transparent;
   border: 1px solid #444440;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .open-form-btn {
@@ -72,8 +73,8 @@ button {
 }
 
 .add-btn {
-  font-size: 1.4rem;
   border: none;
+  font-size: 1.4rem;
 }
 
 /* skills section */
