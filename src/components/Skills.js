@@ -13,6 +13,7 @@ function Skills({ addSkill }) {
     if (currentSkill !== "") {
       addSkill(currentSkill);
       setCurrentSkill("");
+      handleFormToggle();
     }
   }
 
@@ -21,17 +22,7 @@ function Skills({ addSkill }) {
   }
 
   return (
-    <div className="skills-section">
-    <div>
-      <p>SKILLS</p>
-      <button
-        onClick={handleFormToggle}
-        className="open-form-btn"
-      >
-        Add skills +
-      </button>
-    </div>
-
+    <div className="skills-component">
       {isOpen && (
         <form className="skills-form" onSubmit={handleSubmit}>
           <input
@@ -40,9 +31,13 @@ function Skills({ addSkill }) {
             value={currentSkill}
             onChange={handleInput}
           />
-          <button className="add-btn">+</button>
+          <button className="add-btn">Add</button>
         </form>
       )}
+
+      <button onClick={handleFormToggle} className="open-form-btn">
+        {isOpen ? 'Close' : 'Add skills +'}
+      </button>
     </div>
   );
 }

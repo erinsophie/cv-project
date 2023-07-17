@@ -16,25 +16,28 @@ function Template() {
 
   return (
     <div className="cv-template">
-      <hr />
 
-      <Skills addSkill={addSkill}/>
-      <div className="info">
-        <ul>
-          {skills.map((skill, index) => (
-            <li key={index}>{skill}</li>
-          ))}
-        </ul>
+      <div className="skills-section">
+        <p>SKILLS</p>
+        <hr />
+       
+       {skills.length > 0 && <div className="info">
+          <ul className='skills-list'>
+            {skills.map((skill, index) => (
+              <li key={index}>{skill}</li>
+            ))}
+          </ul>
+        </div>}
+       
+        <Skills addSkill={addSkill} />
       </div>
 
-      <hr />
+      
       <div className="education-section">
         <div>
           <p>EDUCATION</p>
-          <button
-            data-form="educationForm"
-            className="open-form-btn"
-          >
+          <hr />
+          <button data-form="educationForm" className="open-form-btn">
             Add education +
           </button>
         </div>
