@@ -87,6 +87,54 @@ button {
   font-size: 0.8rem;
 }
 
+/* contact section */
+
+.contact-section {
+  display: flex;
+  margin-bottom: 10px;
+  color: #444440;
+}
+
+.contact-section input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.name-title {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-weight: 500;
+}
+
+.name-input {
+  font-size: 1.8rem;
+}
+
+.current-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.contact-data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  padding-left: 42%;
+}
+
+.contact-data input {
+  width: 100%;
+}
+
+.contact-data > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 /* skills section */
 
 .skills-section {

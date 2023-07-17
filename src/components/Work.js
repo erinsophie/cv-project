@@ -45,8 +45,6 @@ function Work({ addWork }) {
     setWorkData(clearData);
   }
 
-  console.log(workData);
-
   return (
     <div>
       {isOpen && (

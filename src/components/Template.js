@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Skills from "./Skills";
 import Education from "./Education";
 import Work from "./Work";
+import Contact from "./Contact";
 
 function Template() {
+  const [contact, setContact] = useState("");
   const [skills, setSkills] = useState([]);
   const [education, setEducation] = useState([]);
   const [work, setWork] = useState([]);
@@ -26,6 +28,8 @@ function Template() {
 
   return (
     <div className="cv-template">
+      <Contact />
+
       <div className="skills-section">
         <p>SKILLS</p>
         <hr />

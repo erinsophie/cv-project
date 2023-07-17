@@ -24,8 +24,6 @@ function Skills({ addSkill }) {
     }
   }
 
-  console.log(currentSkill)
-
   function handleFormToggle() {
     setIsOpen((prev) => !prev);
     setCurrentSkill({ text: "", id: uniqid() });
