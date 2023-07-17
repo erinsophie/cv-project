@@ -19,10 +19,11 @@ function Skills({ addSkill }) {
 
   function handleFormToggle() {
     setIsOpen((prev) => !prev);
+    setCurrentSkill("");
   }
 
   return (
-    <div className="skills-component">
+    <div>
       {isOpen && (
         <form className="skills-form" onSubmit={handleSubmit}>
           <input
@@ -36,7 +37,7 @@ function Skills({ addSkill }) {
       )}
 
       <button onClick={handleFormToggle} className="open-form-btn">
-        {isOpen ? 'Close' : 'Add skills +'}
+        {isOpen ? "Close" : "Add skills +"}
       </button>
     </div>
   );

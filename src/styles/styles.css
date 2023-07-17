@@ -61,7 +61,6 @@ h6 {
 }
 
 .title {
-  
 }
 
 button {
@@ -80,6 +79,10 @@ button {
   font-size: 0.8rem;
 }
 
+.info {
+  margin-left: 5%;
+}
+
 /* skills section */
 
 .skills-section {
@@ -89,14 +92,10 @@ button {
 }
 
 .skills-form {
+  display: flex;
   margin-bottom: 20px;
   padding: 20px;
   border: 1px solid #444440;
-  display: flex;
-}
-
-.info {
-  margin-left: 5%;
 }
 
 .skills-list > li {
@@ -114,15 +113,17 @@ button {
 
 .education-section {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .education-form {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-top: 10px;
+  padding: 20px;
+  gap: 15px;
+  border: 1px solid #444440;
+  margin-bottom: 20px;
 }
 
 .education-form input {
@@ -130,6 +131,22 @@ button {
   border: none;
   outline: none;
   border-bottom: 1px solid #444440;
+}
+.education-form select {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #444440;
+}
+
+.date-container {
+  display: flex;
+  gap: 30px;
+}
+
+.education-form button {
+  width: 8%;
+  justify-self: flex-start;
 }
 
 /* footer */
