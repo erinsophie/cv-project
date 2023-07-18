@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
 
-function Education({ addData }) {
+function Education({ addData, updateData, currentEdit, setCurrentEdit }) {
   const [educationData, setEducationData] = useState({
     school: "",
     degree: "",
@@ -12,6 +12,14 @@ function Education({ addData }) {
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
+  const editEducationItem = currentEdit && currentEdit.section === "education";
+
+  useEffect(() => {
+    if (editEducationItem) {
+      setIsOpen(true);
+      setEducationData(currentEdit.data);
+    }
+  }, [currentEdit]);
 
   function handleInput(event) {
     const { name, value, type, checked } = event.target;
@@ -35,8 +43,13 @@ function Education({ addData }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    addData("education", educationData);
+    if (editEducationItem) {
+      updateData("education", educationData);
+    } else {
+      addData("education", educationData);
+    }
     setEducationData(clearData);
+    setCurrentEdit(null);
     handleFormToggle();
   }
 

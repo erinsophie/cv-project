@@ -17,8 +17,6 @@ function Contact() {
     }));
   }
 
-  console.log(contactInfo);
-
   return (
     <div className="contact-section">
       <div className="name-title">

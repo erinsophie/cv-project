@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
 
-function Work({ addData }) {
+function Work({ addData, updateData, currentEdit, setCurrentEdit }) {
   const [workData, setWorkData] = useState({
     jobTitle: "",
     dateFrom: "",
@@ -12,6 +12,14 @@ function Work({ addData }) {
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
+  const editWorkItem = currentEdit && currentEdit.section === "work";
+
+  useEffect(() => {
+    if (editWorkItem) {
+      setIsOpen(true);
+      setWorkData(currentEdit.data);
+    }
+  }, [currentEdit]);
 
   function handleInput(event) {
     const { name, value, type, checked } = event.target;
@@ -35,8 +43,14 @@ function Work({ addData }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    addData("work", workData);
+    if (editWorkItem) {
+      updateData("work", workData);
+    } else {
+      addData("work", workData);
+    }
+
     setWorkData(clearData);
+    setCurrentEdit(null);
     handleFormToggle();
   }
 

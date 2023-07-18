@@ -3,11 +3,62 @@ import Skills from "./Skills";
 import Education from "./Education";
 import Work from "./Work";
 import Contact from "./Contact";
+import uniqid from "uniqid";
 
 function Template() {
   const [skills, setSkills] = useState([]);
   const [education, setEducation] = useState([]);
   const [work, setWork] = useState([]);
+
+  const [currentEdit, setCurrentEdit] = useState(null);
+  console.log("current edit:");
+  console.log(currentEdit);
+
+  function updateData(section, updatedData) {
+    switch (section) {
+      case "skills":
+        setSkills((prevSkills) =>
+          prevSkills.map((skill) =>
+            skill.id === updatedData.id ? updatedData : skill
+          )
+        );
+        break;
+      case "education":
+        setEducation((prevEducation) =>
+          prevEducation.map((edu) =>
+            edu.id === updatedData.id ? updatedData : edu
+          )
+        );
+        break;
+      case "work":
+        setWork((prevWork) =>
+          prevWork.map((work) =>
+            work.id === updatedData.id ? updatedData : work
+          )
+        );
+        break;
+      default:
+    }
+  }
+
+  function editItem(section, id) {
+    let currentItem;
+    switch (section) {
+      case "skills":
+        currentItem = skills.find((skill) => skill.id === id);
+        break;
+      case "education":
+        currentItem = education.find((edu) => edu.id === id);
+        break;
+      case "work":
+        currentItem = work.find((work) => work.id === id);
+        break;
+      default:
+    }
+    if (currentItem) {
+      setCurrentEdit({ section, data: currentItem });
+    }
+  }
 
   function addData(section, data) {
     switch (section) {
@@ -20,6 +71,7 @@ function Template() {
       case "work":
         setWork((prevWork) => [...prevWork, data]);
         break;
+      default:
     }
   }
 
@@ -38,7 +90,12 @@ function Template() {
       case "work":
         setWork((prevWork) => prevWork.filter((work) => work.id !== id));
         break;
+      default:
     }
+  }
+
+  function capitalise(str) {
+    return str[0].toUpperCase() + str.slice(1);
   }
 
   return (
@@ -53,20 +110,32 @@ function Template() {
           <div className="skills-info">
             <ul className="skills-list">
               {skills.map((skill) => (
+                // each list item
                 <li key={skill.id}>
-                  {skill.text}{" "}
+                  {capitalise(skill.text)}{" "}
                   <button
                     className="delete-btn"
                     onClick={() => deleteItem("skills", skill.id)}
                   >
                     x
                   </button>
+                  <button
+                    className="edit-btn"
+                    onClick={() => editItem("skills", skill.id)}
+                  >
+                    Edit
+                  </button>
                 </li>
               ))}
             </ul>
           </div>
         )}
-        <Skills addData={addData} deleteItem={deleteItem} />
+        <Skills
+          addData={addData}
+          updateData={updateData}
+          currentEdit={currentEdit}
+          setCurrentEdit={setCurrentEdit}
+        />
       </div>
 
       <div className="section">
@@ -78,10 +147,10 @@ function Template() {
             {education.map((info) => (
               <div key={info.id} className="component">
                 <p className="title">
-                  {info.degree} | {info.field}
+                  {capitalise(info.degree)} | {capitalise(info.field)}
                 </p>
 
-                <p>{info.school}</p>
+                <p>{capitalise(info.school)}</p>
                 <p>
                   ({info.dateFrom} -{" "}
                   {info.stillStudying ? "Present" : info.dateUntil})
@@ -92,11 +161,22 @@ function Template() {
                 >
                   X
                 </button>
+                <button
+                  className="edit-btn"
+                  onClick={() => editItem("education", info.id)}
+                >
+                  Edit
+                </button>
               </div>
             ))}
           </div>
         )}
-        <Education addData={addData} />
+        <Education
+          addData={addData}
+          updateData={updateData}
+          currentEdit={currentEdit}
+          setCurrentEdit={setCurrentEdit}
+        />
       </div>
 
       <div className="section">
@@ -108,14 +188,14 @@ function Template() {
             {work.map((info) => (
               <div key={info.id} className="component">
                 <p className="title">
-                  {info.jobTitle} | ({info.dateFrom} -{" "}
+                  {capitalise(info.jobTitle)} | ({info.dateFrom} -{" "}
                   {info.current ? "Current" : info.dateUntil})
                 </p>
-                <p>{info.company}</p>
+                <p>{capitalise(info.company)}</p>
 
                 <ul className="duties-list">
-                  {info.description.split("\n").map((item, i) => (
-                    <li key={i}>{item}</li>
+                  {info.description.split("\n").map((item) => (
+                    <li key={uniqid()}>{capitalise(item)}</li>
                   ))}
                 </ul>
                 <button
@@ -124,11 +204,22 @@ function Template() {
                 >
                   X
                 </button>
+                <button
+                  className="edit-btn"
+                  onClick={() => editItem("work", info.id)}
+                >
+                  Edit
+                </button>
               </div>
             ))}
           </div>
         )}
-        <Work addData={addData} />
+        <Work
+          addData={addData}
+          updateData={updateData}
+          currentEdit={currentEdit}
+          setCurrentEdit={setCurrentEdit}
+        />
       </div>
     </div>
   );

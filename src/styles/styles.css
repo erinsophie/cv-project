@@ -76,6 +76,18 @@ button {
   height: 25px;
 }
 
+.edit-btn {
+  position: absolute;
+  font-size: 0.9rem;
+  top: 0;
+  right: 3%;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 25px;
+}
+
 .skills-list li:hover,
 .component:hover {
   background-color: rgba(207, 207, 207, 0.5);

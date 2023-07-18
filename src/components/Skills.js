@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
 
-function Skills({ addData }) {
+function Skills({ addData, updateData, currentEdit, setCurrentEdit }) {
   const [currentSkill, setCurrentSkill] = useState({
     text: "",
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
+  const editSkillsItem = currentEdit && currentEdit.section === "skills";
+
+  useEffect(() => {
+    if (editSkillsItem) {
+      setIsOpen(true);
+      setCurrentSkill(currentEdit.data);
+    }
+  }, [currentEdit]);
 
   function handleInput(event) {
     setCurrentSkill({
@@ -18,8 +26,13 @@ function Skills({ addData }) {
   function handleSubmit(event) {
     event.preventDefault();
     if (currentSkill.text !== "") {
-      addData("skills", currentSkill);
+      if (editSkillsItem) {
+        updateData("skills", currentSkill);
+      } else {
+        addData("skills", currentSkill);
+      }
       setCurrentSkill({ text: "", id: uniqid() });
+      setCurrentEdit(null);
       handleFormToggle();
     }
   }
