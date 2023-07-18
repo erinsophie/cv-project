@@ -9,35 +9,31 @@ function Template() {
   const [education, setEducation] = useState([]);
   const [work, setWork] = useState([]);
 
-  function addSkill(skill) {
-    setSkills((prevSkills) => [...prevSkills, skill]);
+  function addData(section, data) {
+    if (section === "skills") {
+      setSkills((prevSkills) => [...prevSkills, data]);
+    } else if (section === "education") {
+      setEducation((prevEducation) => [...prevEducation, data]);
+    } else if (section === "work") {
+      setWork((prevWork) => [...prevWork, data]);
+    }
   }
 
-  function addEducation(info) {
-    setEducation((prevInfo) => [...prevInfo, info]);
-  }
-
-  function addWork(info) {
-    setWork((prevInfo) => [...prevInfo, info]);
+  function deleteItem(section, id) {
+    if (section === "skills") {
+      setSkills((prevSkills) => prevSkills.filter((skill) => skill.id !== id));
+    } else if (section === "education") {
+      setEducation((prevEducation) =>
+        prevEducation.filter((education) => education.id !== id)
+      );
+    } else if (section === "work") {
+      setWork((prevWork) => prevWork.filter((work) => work.id !== id));
+    }
   }
 
   function capitalise(str) {
     return str[0].toUpperCase() + str.slice(1);
   }
-
-  function deleteItem(section, id) {
-    if (section === "skillsSection") {
-      setSkills((prevSkills) => prevSkills.filter((skill) => skill.id !== id));
-    } else if (section === "educationSection") {
-      setEducation((prevEducation) =>
-        prevEducation.filter((education) => education.id !== id)
-      );
-    } else {
-      setWork((prevWork) => prevWork.filter((work) => work.id !== id));
-    }
-  }
-
-  console.log(skills);
 
   return (
     <div className="cv-template">
@@ -55,7 +51,7 @@ function Template() {
                   {capitalise(skill.text)}{" "}
                   <button
                     className="delete-btn"
-                    onClick={() => deleteItem("skillsSection", skill.id)}
+                    onClick={() => deleteItem("skills", skill.id)}
                   >
                     x
                   </button>
@@ -64,7 +60,7 @@ function Template() {
             </ul>
           </div>
         )}
-        <Skills addSkill={addSkill} deleteItem={deleteItem} />
+        <Skills addData={addData} deleteItem={deleteItem} />
       </div>
 
       <div className="education-section">
@@ -75,12 +71,6 @@ function Template() {
           <div className="education-info">
             {education.map((info) => (
               <div key={info.id} className="education-component">
-                <button
-                  className="delete-btn"
-                  onClick={() => deleteItem("educationSection", info.id)}
-                >
-                  X
-                </button>
                 <p className="title">
                   {info.degree} | {info.field}
                 </p>
@@ -90,11 +80,17 @@ function Template() {
                   ({info.dateFrom} -{" "}
                   {info.stillStudying ? "Present" : info.dateUntil})
                 </p>
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteItem("education", info.id)}
+                >
+                  X
+                </button>
               </div>
             ))}
           </div>
         )}
-        <Education addEducation={addEducation} />
+        <Education addData={addData} />
       </div>
 
       <div className="work-section">
@@ -105,12 +101,6 @@ function Template() {
           <div className="work-info">
             {work.map((info) => (
               <div key={info.id} className="work-component">
-                <button
-                  className="delete-btn"
-                  onClick={() => deleteItem("workSection", info.id)}
-                >
-                  X
-                </button>
                 <p className="title">
                   {info.jobTitle} | ({info.dateFrom} -{" "}
                   {info.current ? "Current" : info.dateUntil})
@@ -122,11 +112,17 @@ function Template() {
                     <li key={i}>{item}</li>
                   ))}
                 </ul>
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteItem("work", info.id)}
+                >
+                  X
+                </button>
               </div>
             ))}
           </div>
         )}
-        <Work addWork={addWork} />
+        <Work addData={addData} />
       </div>
     </div>
   );

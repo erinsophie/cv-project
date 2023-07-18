@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
 
-function Education({ addEducation }) {
+function Education({ addData }) {
   const [educationData, setEducationData] = useState({
     school: "",
     degree: "",
@@ -35,7 +35,7 @@ function Education({ addEducation }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    addEducation(educationData);
+    addData("education", educationData);
     setEducationData(clearData);
     handleFormToggle();
   }

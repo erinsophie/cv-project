@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
 
-function Work({ addWork }) {
+function Work({ addData }) {
   const [workData, setWorkData] = useState({
     jobTitle: "",
     dateFrom: "",
@@ -35,7 +35,7 @@ function Work({ addWork }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    addWork(workData);
+    addData("work", workData);
     setWorkData(clearData);
     handleFormToggle();
   }
@@ -66,6 +66,7 @@ function Work({ addWork }) {
             name="company"
             checked={workData.company}
             onChange={handleInput}
+            required
           />
 
           <label htmlFor="dates">Duration</label>
@@ -115,6 +116,7 @@ function Work({ addWork }) {
             value={workData.description}
             placeholder="Every new line will be formatted as a bullet point"
             onChange={handleInput}
+            required
           />
 
           <button className="add-btn">Add</button>

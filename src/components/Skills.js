@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
 
-function Skills({ addSkill }) {
+function Skills({ addData }) {
   const [currentSkill, setCurrentSkill] = useState({
     text: "",
     id: uniqid(),
@@ -18,7 +18,7 @@ function Skills({ addSkill }) {
   function handleSubmit(event) {
     event.preventDefault();
     if (currentSkill.text !== "") {
-      addSkill(currentSkill);
+      addData("skills", currentSkill);
       setCurrentSkill({ text: "", id: uniqid() });
       handleFormToggle();
     }
