@@ -4,15 +4,14 @@ import Education from "./Education";
 import Work from "./Work";
 import Contact from "./Contact";
 import uniqid from "uniqid";
+import Button from "./Button";
 
-function Template() {
+function Template({ showButtons }) {
   const [skills, setSkills] = useState([]);
   const [education, setEducation] = useState([]);
   const [work, setWork] = useState([]);
 
   const [currentEdit, setCurrentEdit] = useState(null);
-  console.log("current edit:");
-  console.log(currentEdit);
 
   function updateData(section, updatedData) {
     switch (section) {
@@ -113,18 +112,20 @@ function Template() {
                 // each list item
                 <li key={skill.id}>
                   {capitalise(skill.text)}{" "}
-                  <button
+                  <Button
+                    show={showButtons}
                     className="delete-btn"
                     onClick={() => deleteItem("skills", skill.id)}
                   >
                     x
-                  </button>
-                  <button
+                  </Button>
+                  <Button
+                    show={showButtons}
                     className="edit-btn"
                     onClick={() => editItem("skills", skill.id)}
                   >
                     Edit
-                  </button>
+                  </Button>
                 </li>
               ))}
             </ul>
@@ -135,6 +136,7 @@ function Template() {
           updateData={updateData}
           currentEdit={currentEdit}
           setCurrentEdit={setCurrentEdit}
+          showButtons={showButtons}
         />
       </div>
 
@@ -155,18 +157,22 @@ function Template() {
                   ({info.dateFrom} -{" "}
                   {info.stillStudying ? "Present" : info.dateUntil})
                 </p>
-                <button
+
+                <Button
+                  show={showButtons}
                   className="delete-btn"
                   onClick={() => deleteItem("education", info.id)}
                 >
-                  X
-                </button>
-                <button
+                  x
+                </Button>
+
+                <Button
+                  show={showButtons}
                   className="edit-btn"
                   onClick={() => editItem("education", info.id)}
                 >
                   Edit
-                </button>
+                </Button>
               </div>
             ))}
           </div>
@@ -176,6 +182,7 @@ function Template() {
           updateData={updateData}
           currentEdit={currentEdit}
           setCurrentEdit={setCurrentEdit}
+          showButtons={showButtons}
         />
       </div>
 
@@ -198,18 +205,21 @@ function Template() {
                     <li key={uniqid()}>{capitalise(item)}</li>
                   ))}
                 </ul>
-                <button
+                <Button
+                  show={showButtons}
                   className="delete-btn"
                   onClick={() => deleteItem("work", info.id)}
                 >
-                  X
-                </button>
-                <button
+                  x
+                </Button>
+
+                <Button
+                  show={showButtons}
                   className="edit-btn"
                   onClick={() => editItem("work", info.id)}
                 >
                   Edit
-                </button>
+                </Button>
               </div>
             ))}
           </div>
@@ -219,6 +229,7 @@ function Template() {
           updateData={updateData}
           currentEdit={currentEdit}
           setCurrentEdit={setCurrentEdit}
+          showButtons={showButtons}
         />
       </div>
     </div>

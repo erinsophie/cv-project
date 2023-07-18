@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+import Button from "./Button";
 import uniqid from "uniqid";
 
-function Skills({ addData, updateData, currentEdit, setCurrentEdit }) {
+function Skills({
+  addData,
+  updateData,
+  currentEdit,
+  setCurrentEdit,
+  showButtons,
+}) {
   const [currentSkill, setCurrentSkill] = useState({
     text: "",
     id: uniqid(),
@@ -56,9 +63,14 @@ function Skills({ addData, updateData, currentEdit, setCurrentEdit }) {
         </form>
       )}
 
-      <button onClick={handleFormToggle} className="open-form-btn">
+      <Button
+        show={showButtons}
+        className="open-form-btn"
+        onClick={handleFormToggle}
+      >
+        {" "}
         {isOpen ? "Close" : "Add skills +"}
-      </button>
+      </Button>
     </div>
   );
 }

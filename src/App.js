@@ -1,12 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./styles/styles.css";
 import Template from "./components/Template";
 import Footer from "./components/Footer";
-import "./styles/styles.css";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function App() {
+  const [showButtons, setShowButtons] = useState(true);
+  const [mode, setMode] = useState("none");
+
+  console.log("mode:");
+  console.log(mode);
+
+  function toggleButtons() {
+    setShowButtons((prev) => !prev);
+    setMode(mode === "none" ? "preview" : "none");
+  }
+
+  useEffect(() => {
+    const generate = async () => {
+      if (mode === "download") {
+        const pdf = new jsPDF("portrait", "pt", "a4");
+        const data = await html2canvas(document.querySelector(".cv-template"));
+        const img = data.toDataURL("img/png");
+        const imgProperties = pdf.getImageProperties(img);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight =
+          (imgProperties.height * pdfWidth) / imgProperties.width;
+        pdf.addImage(img, "PNG", 0, 0, pdfWidth, pdfHeight);
+        pdf.save("cv.pdf");
+        setShowButtons(true);
+        setMode("none");
+      }
+    };
+    generate();
+  }, [mode]);
+
+  const saveAsPDF = () => {
+    setShowButtons(false);
+    setMode("download");
+  };
+
   return (
     <div className="container">
-      <Template />
+      <Template showButtons={showButtons} />
+      <button onClick={toggleButtons}>Preview</button>
+      <button onClick={saveAsPDF}>Save as pdf</button>
       <Footer />
     </div>
   );

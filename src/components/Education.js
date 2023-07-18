@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+import Button from "./Button";
 import uniqid from "uniqid";
 
-function Education({ addData, updateData, currentEdit, setCurrentEdit }) {
+function Education({
+  addData,
+  updateData,
+  currentEdit,
+  setCurrentEdit,
+  showButtons,
+}) {
   const [educationData, setEducationData] = useState({
     school: "",
     degree: "",
@@ -145,9 +152,14 @@ function Education({ addData, updateData, currentEdit, setCurrentEdit }) {
           <button className="add-btn">Add</button>
         </form>
       )}
-      <button onClick={handleFormToggle} className="open-form-btn">
+      <Button
+        show={showButtons}
+        className="open-form-btn"
+        onClick={handleFormToggle}
+      >
+        {" "}
         {isOpen ? "Close" : "Add education +"}
-      </button>
+      </Button>
     </div>
   );
 }

@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
+import Button from "./Button";
 import uniqid from "uniqid";
 
-function Work({ addData, updateData, currentEdit, setCurrentEdit }) {
+function Work({
+  addData,
+  updateData,
+  currentEdit,
+  setCurrentEdit,
+  showButtons,
+}) {
   const [workData, setWorkData] = useState({
     jobTitle: "",
     dateFrom: "",
@@ -136,9 +143,14 @@ function Work({ addData, updateData, currentEdit, setCurrentEdit }) {
           <button className="add-btn">Add</button>
         </form>
       )}
-      <button onClick={handleFormToggle} className="open-form-btn">
+      <Button
+        show={showButtons}
+        className="open-form-btn"
+        onClick={handleFormToggle}
+      >
+        {" "}
         {isOpen ? "Close" : "Add work +"}
-      </button>
+      </Button>
     </div>
   );
 }
