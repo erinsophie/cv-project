@@ -48,7 +48,7 @@ function Education({ addData }) {
   return (
     <div>
       {isOpen && (
-        <form className="education-form" onSubmit={handleSubmit}>
+        <form className="education-form form" onSubmit={handleSubmit}>
           <label htmlFor="degree">Degree awarded</label>
           <select
             id="degree"

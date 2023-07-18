@@ -32,7 +32,7 @@ function Skills({ addData }) {
   return (
     <div>
       {isOpen && (
-        <form className="skills-form" onSubmit={handleSubmit}>
+        <form className="skills-form form" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Add 5 of your skills"

@@ -48,7 +48,7 @@ function Work({ addData }) {
   return (
     <div>
       {isOpen && (
-        <form className="work-form" onSubmit={handleSubmit}>
+        <form className="work-form form" onSubmit={handleSubmit}>
           <label htmlFor="jobTitle">Job title</label>
           <input
             type="text"

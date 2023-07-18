@@ -10,36 +10,42 @@ function Template() {
   const [work, setWork] = useState([]);
 
   function addData(section, data) {
-    if (section === "skills") {
-      setSkills((prevSkills) => [...prevSkills, data]);
-    } else if (section === "education") {
-      setEducation((prevEducation) => [...prevEducation, data]);
-    } else if (section === "work") {
-      setWork((prevWork) => [...prevWork, data]);
+    switch (section) {
+      case "skills":
+        setSkills((prevSkills) => [...prevSkills, data]);
+        break;
+      case "education":
+        setEducation((prevEducation) => [...prevEducation, data]);
+        break;
+      case "work":
+        setWork((prevWork) => [...prevWork, data]);
+        break;
     }
   }
 
   function deleteItem(section, id) {
-    if (section === "skills") {
-      setSkills((prevSkills) => prevSkills.filter((skill) => skill.id !== id));
-    } else if (section === "education") {
-      setEducation((prevEducation) =>
-        prevEducation.filter((education) => education.id !== id)
-      );
-    } else if (section === "work") {
-      setWork((prevWork) => prevWork.filter((work) => work.id !== id));
+    switch (section) {
+      case "skills":
+        setSkills((prevSkills) =>
+          prevSkills.filter((skill) => skill.id !== id)
+        );
+        break;
+      case "education":
+        setEducation((prevEducation) =>
+          prevEducation.filter((education) => education.id !== id)
+        );
+        break;
+      case "work":
+        setWork((prevWork) => prevWork.filter((work) => work.id !== id));
+        break;
     }
-  }
-
-  function capitalise(str) {
-    return str[0].toUpperCase() + str.slice(1);
   }
 
   return (
     <div className="cv-template">
       <Contact />
 
-      <div className="skills-section">
+      <div className="section">
         <p>SKILLS</p>
         <hr />
 
@@ -48,7 +54,7 @@ function Template() {
             <ul className="skills-list">
               {skills.map((skill) => (
                 <li key={skill.id}>
-                  {capitalise(skill.text)}{" "}
+                  {skill.text}{" "}
                   <button
                     className="delete-btn"
                     onClick={() => deleteItem("skills", skill.id)}
@@ -63,14 +69,14 @@ function Template() {
         <Skills addData={addData} deleteItem={deleteItem} />
       </div>
 
-      <div className="education-section">
+      <div className="section">
         <p>EDUCATION</p>
         <hr />
 
         {education.length > 0 && (
-          <div className="education-info">
+          <div className="info">
             {education.map((info) => (
-              <div key={info.id} className="education-component">
+              <div key={info.id} className="component">
                 <p className="title">
                   {info.degree} | {info.field}
                 </p>
@@ -93,14 +99,14 @@ function Template() {
         <Education addData={addData} />
       </div>
 
-      <div className="work-section">
+      <div className="section">
         <p>WORK</p>
         <hr />
 
         {work.length > 0 && (
-          <div className="work-info">
+          <div className="info">
             {work.map((info) => (
-              <div key={info.id} className="work-component">
+              <div key={info.id} className="component">
                 <p className="title">
                   {info.jobTitle} | ({info.dateFrom} -{" "}
                   {info.current ? "Current" : info.dateUntil})

@@ -38,29 +38,13 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* main */
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #e8e8e8;
-}
-
-.cv-template {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 35px;
-  color: #444440;
-  background-color: #fffbee;
-  width: 90%;
-}
-
 /* general */
+
+:root {
+  --dark-grey: #444440;
+  --light-grey: #e8e8e8;
+  --beige: #fffbee;
+}
 
 .title {
   font-size: 1.2rem;
@@ -69,18 +53,16 @@ h6 {
 
 button {
   background-color: transparent;
-  border: 1px solid #444440;
+  border: 1px solid var(--dark-grey);
   border-radius: 6px;
+  padding: 8px;
   cursor: pointer;
 }
 
-.open-form-btn {
-  padding: 8px;
-}
-
 .add-btn {
-  padding: 8px;
+  width: 8%;
   font-size: 0.8rem;
+  justify-self: flex-start;
 }
 
 .delete-btn {
@@ -95,9 +77,76 @@ button {
 }
 
 .skills-list li:hover,
-.education-component:hover,
-.work-component:hover {
-  background-color: rgba(207, 207, 207, 0.5)
+.component:hover {
+  background-color: rgba(207, 207, 207, 0.5);
+}
+
+.skills-form input,
+.education-form input,
+.work-form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--dark-grey);
+}
+
+.education-form select,
+.work-form textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 20px;
+  gap: 15px;
+  border: 1px solid var(--dark-grey);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  gap: 25px;
+}
+
+.component {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+/* main */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--light-grey);
+}
+
+.cv-template {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 35px;
+  color: var(--dark-grey);
+  background-color: var(--beige);
+  width: 90%;
 }
 
 /* contact section */
@@ -105,7 +154,7 @@ button {
 .contact-section {
   display: flex;
   margin-bottom: 10px;
-  color: #444440;
+  color: var(--dark-grey);
 }
 
 .contact-section input {
@@ -123,6 +172,7 @@ button {
 
 .name-input {
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .current-title {
@@ -150,31 +200,17 @@ button {
 
 /* skills section */
 
-.skills-section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
 .skills-form {
-  display: flex;
-  margin-bottom: 20px;
-  padding: 20px;
+  flex-direction: row;
   gap: 8px;
-  border: 1px solid #444440;
 }
 
-.skills-form input {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #444440;
+.skills-form .add-btn {
+  width: 5%;
 }
 
 .skills-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 5px;
+  padding: 7px;
   position: relative;
 }
 
@@ -183,42 +219,6 @@ button {
 }
 
 /* education section */
-
-.education-section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.education-form {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  gap: 15px;
-  border: 1px solid #444440;
-  margin-bottom: 20px;
-}
-
-.education-form input {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #444440;
-}
-
-.education-form select {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #444440;
-}
-
-.education-component {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-}
 
 .date-container {
   display: flex;
@@ -231,71 +231,20 @@ button {
   gap: 5px;
 }
 
-.education-form button {
-  width: 8%;
-  justify-self: flex-start;
-}
-
-.education-info {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
-  gap: 25px;
+.education-form select {
+  border-bottom: 1px solid var(--dark-grey);
 }
 
 /* work section */
-
-.work-section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.work-form {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  padding: 20px;
-  gap: 10px;
-  border: 1px solid #444440;
-}
-
-.work-form input {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #444440;
-}
-
-.work-info {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
-  gap: 25px;
-}
 
 .duties-list {
   padding: 5px;
 }
 
-.work-component {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-}
-
 .work-form textarea {
   resize: none;
-  outline: none;
   padding: 10px;
-  background-color: transparent;
-  border: 1px solid #444440;
-}
-
-.work-form button {
-  width: 8%;
-  justify-self: flex-start;
+  border: 1px solid var(--dark-grey);
 }
 
 /* footer */
