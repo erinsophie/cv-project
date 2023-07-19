@@ -66,9 +66,6 @@ button {
 }
 
 .delete-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,10 +74,7 @@ button {
 }
 
 .edit-btn {
-  position: absolute;
   font-size: 0.9rem;
-  top: 0;
-  right: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,11 +125,20 @@ button {
   gap: 25px;
 }
 
-.component {
+.input-data {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  position: relative;
+}
+
+.edit-delete-container {
+  display: flex;
+  gap: 8px;
+}
+
+.component {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* main */
@@ -221,9 +224,11 @@ button {
   width: 5%;
 }
 
-.skills-list li {
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 7px;
-  position: relative;
 }
 
 .skills-info {

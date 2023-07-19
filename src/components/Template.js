@@ -109,23 +109,26 @@ function Template({ showButtons }) {
           <div className="skills-info">
             <ul className="skills-list">
               {skills.map((skill) => (
-                // each list item
                 <li key={skill.id}>
-                  {capitalise(skill.text)}{' '}
-                  <Button
-                    show={showButtons}
-                    className="delete-btn"
-                    onClick={() => deleteItem('skills', skill.id)}
-                  >
-                    x
-                  </Button>
-                  <Button
-                    show={showButtons}
-                    className="edit-btn"
-                    onClick={() => editItem('skills', skill.id)}
-                  >
-                    Edit
-                  </Button>
+                  <div className="list-item">
+                    {capitalise(skill.text)}
+                    <div className="edit-delete-container">
+                      <Button
+                        show={showButtons}
+                        className="edit-btn"
+                        onClick={() => editItem('skills', skill.id)}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        show={showButtons}
+                        className="delete-btn"
+                        onClick={() => deleteItem('skills', skill.id)}
+                      >
+                        x
+                      </Button>
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -148,30 +151,34 @@ function Template({ showButtons }) {
           <div className="info">
             {education.map((info) => (
               <div key={info.id} className="component">
-                <p className="title">
-                  {capitalise(info.degree)} | {capitalise(info.field)}
-                </p>
-                <p>
-                  ({info.dateFrom} -{' '}
-                  {info.stillStudying ? 'Present' : info.dateUntil})
-                </p>
-                <p>{capitalise(info.school)}</p>
+                <div className="input-data">
+                  <p className="title">
+                    {capitalise(info.degree)} | {capitalise(info.field)}
+                  </p>
+                  <p>
+                    ({info.dateFrom} -{' '}
+                    {info.stillStudying ? 'Present' : info.dateUntil})
+                  </p>
+                  <p>{capitalise(info.school)}</p>
+                </div>
 
-                <Button
-                  show={showButtons}
-                  className="delete-btn"
-                  onClick={() => deleteItem('education', info.id)}
-                >
-                  x
-                </Button>
+                <div className="edit-delete-container">
+                  <Button
+                    show={showButtons}
+                    className="edit-btn"
+                    onClick={() => editItem('education', info.id)}
+                  >
+                    Edit
+                  </Button>
 
-                <Button
-                  show={showButtons}
-                  className="edit-btn"
-                  onClick={() => editItem('education', info.id)}
-                >
-                  Edit
-                </Button>
+                  <Button
+                    show={showButtons}
+                    className="delete-btn"
+                    onClick={() => deleteItem('education', info.id)}
+                  >
+                    x
+                  </Button>
+                </div>
               </div>
             ))}
           </div>
@@ -193,33 +200,38 @@ function Template({ showButtons }) {
           <div className="info">
             {work.map((info) => (
               <div key={info.id} className="component">
-                <p className="title">{capitalise(info.jobTitle)}</p>
-                <p>
-                  ({info.dateFrom} - {info.current ? 'Current' : info.dateUntil}
-                  )
-                </p>
-                <p>{capitalise(info.company)}</p>
+                <div className="input-data">
+                  <p className="title">{capitalise(info.jobTitle)}</p>
+                  <p>
+                    ({info.dateFrom} -{' '}
+                    {info.current ? 'Current' : info.dateUntil})
+                  </p>
+                  <p>{capitalise(info.company)}</p>
 
-                <ul className="duties-list">
-                  {info.description.split('\n').map((item) => (
-                    <li key={uniqid()}>{capitalise(item)}</li>
-                  ))}
-                </ul>
-                <Button
-                  show={showButtons}
-                  className="delete-btn"
-                  onClick={() => deleteItem('work', info.id)}
-                >
-                  x
-                </Button>
+                  <ul className="duties-list">
+                    {info.description.split('\n').map((item) => (
+                      <li key={uniqid()}>{capitalise(item)}</li>
+                    ))}
+                  </ul>
+                </div>
 
-                <Button
-                  show={showButtons}
-                  className="edit-btn"
-                  onClick={() => editItem('work', info.id)}
-                >
-                  Edit
-                </Button>
+                <div className="edit-delete-container">
+                  <Button
+                    show={showButtons}
+                    className="edit-btn"
+                    onClick={() => editItem('work', info.id)}
+                  >
+                    Edit
+                  </Button>
+
+                  <Button
+                    show={showButtons}
+                    className="delete-btn"
+                    onClick={() => deleteItem('work', info.id)}
+                  >
+                    x
+                  </Button>
+                </div>
               </div>
             ))}
           </div>
