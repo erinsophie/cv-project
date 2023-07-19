@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Button from "./Button";
-import uniqid from "uniqid";
+import React, { useState, useEffect } from 'react';
+import Button from './Button';
+import uniqid from 'uniqid';
 
 function Education({
   addData,
@@ -10,16 +10,16 @@ function Education({
   showButtons,
 }) {
   const [educationData, setEducationData] = useState({
-    school: "",
-    degree: "",
-    field: "",
-    dateFrom: "",
-    dateUntil: "",
+    school: '',
+    degree: '',
+    field: '',
+    dateFrom: '',
+    dateUntil: '',
     stillStudying: false,
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
-  const editEducationItem = currentEdit && currentEdit.section === "education";
+  const editEducationItem = currentEdit && currentEdit.section === 'education';
 
   useEffect(() => {
     if (editEducationItem) {
@@ -32,18 +32,18 @@ function Education({
     const { name, value, type, checked } = event.target;
     setEducationData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   }
 
   function clearData() {
     return {
-      school: "",
-      degree: "",
-      field: "",
-      dateFrom: "",
-      dateUntil: "",
-      stillStudying: "",
+      school: '',
+      degree: '',
+      field: '',
+      dateFrom: '',
+      dateUntil: '',
+      stillStudying: '',
       id: uniqid(),
     };
   }
@@ -51,9 +51,9 @@ function Education({
   function handleSubmit(event) {
     event.preventDefault();
     if (editEducationItem) {
-      updateData("education", educationData);
+      updateData('education', educationData);
     } else {
-      addData("education", educationData);
+      addData('education', educationData);
     }
     setEducationData(clearData);
     setCurrentEdit(null);
@@ -157,8 +157,8 @@ function Education({
         className="open-form-btn"
         onClick={handleFormToggle}
       >
-        {" "}
-        {isOpen ? "Close" : "Add education +"}
+        {' '}
+        {isOpen ? 'Close' : 'Add education +'}
       </Button>
     </div>
   );

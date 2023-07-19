@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Button from "./Button";
-import uniqid from "uniqid";
+import React, { useState, useEffect } from 'react';
+import Button from './Button';
+import uniqid from 'uniqid';
 
 function Skills({
   addData,
@@ -10,11 +10,11 @@ function Skills({
   showButtons,
 }) {
   const [currentSkill, setCurrentSkill] = useState({
-    text: "",
+    text: '',
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
-  const editSkillsItem = currentEdit && currentEdit.section === "skills";
+  const editSkillsItem = currentEdit && currentEdit.section === 'skills';
 
   useEffect(() => {
     if (editSkillsItem) {
@@ -32,13 +32,13 @@ function Skills({
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (currentSkill.text !== "") {
+    if (currentSkill.text !== '') {
       if (editSkillsItem) {
-        updateData("skills", currentSkill);
+        updateData('skills', currentSkill);
       } else {
-        addData("skills", currentSkill);
+        addData('skills', currentSkill);
       }
-      setCurrentSkill({ text: "", id: uniqid() });
+      setCurrentSkill({ text: '', id: uniqid() });
       setCurrentEdit(null);
       handleFormToggle();
     }
@@ -46,7 +46,7 @@ function Skills({
 
   function handleFormToggle() {
     setIsOpen((prev) => !prev);
-    setCurrentSkill({ text: "", id: uniqid() });
+    setCurrentSkill({ text: '', id: uniqid() });
   }
 
   return (
@@ -68,8 +68,8 @@ function Skills({
         className="open-form-btn"
         onClick={handleFormToggle}
       >
-        {" "}
-        {isOpen ? "Close" : "Add skills +"}
+        {' '}
+        {isOpen ? 'Close' : 'Add skills +'}
       </Button>
     </div>
   );

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Button from "./Button";
-import uniqid from "uniqid";
+import React, { useState, useEffect } from 'react';
+import Button from './Button';
+import uniqid from 'uniqid';
 
 function Work({
   addData,
@@ -10,16 +10,16 @@ function Work({
   showButtons,
 }) {
   const [workData, setWorkData] = useState({
-    jobTitle: "",
-    dateFrom: "",
-    dateUntil: "",
+    jobTitle: '',
+    dateFrom: '',
+    dateUntil: '',
     current: false,
-    company: "",
-    description: "",
+    company: '',
+    description: '',
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
-  const editWorkItem = currentEdit && currentEdit.section === "work";
+  const editWorkItem = currentEdit && currentEdit.section === 'work';
 
   useEffect(() => {
     if (editWorkItem) {
@@ -32,18 +32,18 @@ function Work({
     const { name, value, type, checked } = event.target;
     setWorkData((prevData) => ({
       ...prevData,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: type === 'checkbox' ? checked : value,
     }));
   }
 
   function clearData() {
     return {
-      jobTitle: "",
-      dateFrom: "",
-      dateUntil: "",
+      jobTitle: '',
+      dateFrom: '',
+      dateUntil: '',
       current: false,
-      company: "",
-      description: "",
+      company: '',
+      description: '',
       id: uniqid(),
     };
   }
@@ -51,9 +51,9 @@ function Work({
   function handleSubmit(event) {
     event.preventDefault();
     if (editWorkItem) {
-      updateData("work", workData);
+      updateData('work', workData);
     } else {
-      addData("work", workData);
+      addData('work', workData);
     }
 
     setWorkData(clearData);
@@ -148,8 +148,8 @@ function Work({
         className="open-form-btn"
         onClick={handleFormToggle}
       >
-        {" "}
-        {isOpen ? "Close" : "Add work +"}
+        {' '}
+        {isOpen ? 'Close' : 'Add work +'}
       </Button>
     </div>
   );

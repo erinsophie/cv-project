@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Skills from "./Skills";
-import Education from "./Education";
-import Work from "./Work";
-import Contact from "./Contact";
-import uniqid from "uniqid";
-import Button from "./Button";
+import React, { useState } from 'react';
+import Skills from './Skills';
+import Education from './Education';
+import Work from './Work';
+import Contact from './Contact';
+import uniqid from 'uniqid';
+import Button from './Button';
 
 function Template({ showButtons }) {
   const [skills, setSkills] = useState([]);
@@ -15,25 +15,25 @@ function Template({ showButtons }) {
 
   function updateData(section, updatedData) {
     switch (section) {
-      case "skills":
+      case 'skills':
         setSkills((prevSkills) =>
           prevSkills.map((skill) =>
-            skill.id === updatedData.id ? updatedData : skill
-          )
+            skill.id === updatedData.id ? updatedData : skill,
+          ),
         );
         break;
-      case "education":
+      case 'education':
         setEducation((prevEducation) =>
           prevEducation.map((edu) =>
-            edu.id === updatedData.id ? updatedData : edu
-          )
+            edu.id === updatedData.id ? updatedData : edu,
+          ),
         );
         break;
-      case "work":
+      case 'work':
         setWork((prevWork) =>
           prevWork.map((work) =>
-            work.id === updatedData.id ? updatedData : work
-          )
+            work.id === updatedData.id ? updatedData : work,
+          ),
         );
         break;
       default:
@@ -43,13 +43,13 @@ function Template({ showButtons }) {
   function editItem(section, id) {
     let currentItem;
     switch (section) {
-      case "skills":
+      case 'skills':
         currentItem = skills.find((skill) => skill.id === id);
         break;
-      case "education":
+      case 'education':
         currentItem = education.find((edu) => edu.id === id);
         break;
-      case "work":
+      case 'work':
         currentItem = work.find((work) => work.id === id);
         break;
       default:
@@ -61,13 +61,13 @@ function Template({ showButtons }) {
 
   function addData(section, data) {
     switch (section) {
-      case "skills":
+      case 'skills':
         setSkills((prevSkills) => [...prevSkills, data]);
         break;
-      case "education":
+      case 'education':
         setEducation((prevEducation) => [...prevEducation, data]);
         break;
-      case "work":
+      case 'work':
         setWork((prevWork) => [...prevWork, data]);
         break;
       default:
@@ -76,17 +76,17 @@ function Template({ showButtons }) {
 
   function deleteItem(section, id) {
     switch (section) {
-      case "skills":
+      case 'skills':
         setSkills((prevSkills) =>
-          prevSkills.filter((skill) => skill.id !== id)
+          prevSkills.filter((skill) => skill.id !== id),
         );
         break;
-      case "education":
+      case 'education':
         setEducation((prevEducation) =>
-          prevEducation.filter((education) => education.id !== id)
+          prevEducation.filter((education) => education.id !== id),
         );
         break;
-      case "work":
+      case 'work':
         setWork((prevWork) => prevWork.filter((work) => work.id !== id));
         break;
       default:
@@ -111,18 +111,18 @@ function Template({ showButtons }) {
               {skills.map((skill) => (
                 // each list item
                 <li key={skill.id}>
-                  {capitalise(skill.text)}{" "}
+                  {capitalise(skill.text)}{' '}
                   <Button
                     show={showButtons}
                     className="delete-btn"
-                    onClick={() => deleteItem("skills", skill.id)}
+                    onClick={() => deleteItem('skills', skill.id)}
                   >
                     x
                   </Button>
                   <Button
                     show={showButtons}
                     className="edit-btn"
-                    onClick={() => editItem("skills", skill.id)}
+                    onClick={() => editItem('skills', skill.id)}
                   >
                     Edit
                   </Button>
@@ -152,15 +152,15 @@ function Template({ showButtons }) {
                   {capitalise(info.degree)} | {capitalise(info.field)}
                 </p>
                 <p>
-                  ({info.dateFrom} -{" "}
-                  {info.stillStudying ? "Present" : info.dateUntil})
+                  ({info.dateFrom} -{' '}
+                  {info.stillStudying ? 'Present' : info.dateUntil})
                 </p>
                 <p>{capitalise(info.school)}</p>
 
                 <Button
                   show={showButtons}
                   className="delete-btn"
-                  onClick={() => deleteItem("education", info.id)}
+                  onClick={() => deleteItem('education', info.id)}
                 >
                   x
                 </Button>
@@ -168,7 +168,7 @@ function Template({ showButtons }) {
                 <Button
                   show={showButtons}
                   className="edit-btn"
-                  onClick={() => editItem("education", info.id)}
+                  onClick={() => editItem('education', info.id)}
                 >
                   Edit
                 </Button>
@@ -195,20 +195,20 @@ function Template({ showButtons }) {
               <div key={info.id} className="component">
                 <p className="title">{capitalise(info.jobTitle)}</p>
                 <p>
-                  ({info.dateFrom} - {info.current ? "Current" : info.dateUntil}
+                  ({info.dateFrom} - {info.current ? 'Current' : info.dateUntil}
                   )
                 </p>
                 <p>{capitalise(info.company)}</p>
 
                 <ul className="duties-list">
-                  {info.description.split("\n").map((item) => (
+                  {info.description.split('\n').map((item) => (
                     <li key={uniqid()}>{capitalise(item)}</li>
                   ))}
                 </ul>
                 <Button
                   show={showButtons}
                   className="delete-btn"
-                  onClick={() => deleteItem("work", info.id)}
+                  onClick={() => deleteItem('work', info.id)}
                 >
                   x
                 </Button>
@@ -216,7 +216,7 @@ function Template({ showButtons }) {
                 <Button
                   show={showButtons}
                   className="edit-btn"
-                  onClick={() => editItem("work", info.id)}
+                  onClick={() => editItem('work', info.id)}
                 >
                   Edit
                 </Button>

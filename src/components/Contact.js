@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function Contact() {
   const [contactInfo, setContactInfo] = useState({
-    name: "",
-    currentTitle: "",
-    email: "",
-    number: "",
-    location: "",
+    name: '',
+    currentTitle: '',
+    email: '',
+    number: '',
+    location: '',
   });
 
   function handleInput(event) {
