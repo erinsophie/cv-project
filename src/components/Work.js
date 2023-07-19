@@ -19,10 +19,9 @@ function Work({
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
-  const editWorkItem = currentEdit && currentEdit.section === 'work';
 
   useEffect(() => {
-    if (editWorkItem) {
+    if (currentEdit && currentEdit.section === 'work') {
       setIsOpen(true);
       setWorkData(currentEdit.data);
     }
@@ -50,7 +49,7 @@ function Work({
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (editWorkItem) {
+    if (currentEdit && currentEdit.section === 'work') {
       updateData('work', workData);
     } else {
       addData('work', workData);

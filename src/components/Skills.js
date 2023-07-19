@@ -14,10 +14,9 @@ function Skills({
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
-  const editSkillsItem = currentEdit && currentEdit.section === 'skills';
 
   useEffect(() => {
-    if (editSkillsItem) {
+    if (currentEdit && currentEdit.section === 'skills') {
       setIsOpen(true);
       setCurrentSkill(currentEdit.data);
     }
@@ -33,7 +32,7 @@ function Skills({
   function handleSubmit(event) {
     event.preventDefault();
     if (currentSkill.text !== '') {
-      if (editSkillsItem) {
+      if (currentEdit && currentEdit.section === 'skills') {
         updateData('skills', currentSkill);
       } else {
         addData('skills', currentSkill);

@@ -19,10 +19,9 @@ function Education({
     id: uniqid(),
   });
   const [isOpen, setIsOpen] = useState(false);
-  const editEducationItem = currentEdit && currentEdit.section === 'education';
 
   useEffect(() => {
-    if (editEducationItem) {
+    if (currentEdit && currentEdit.section === 'education') {
       setIsOpen(true);
       setEducationData(currentEdit.data);
     }
@@ -50,7 +49,7 @@ function Education({
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (editEducationItem) {
+    if (currentEdit && currentEdit.section === 'education') {
       updateData('education', educationData);
     } else {
       addData('education', educationData);
