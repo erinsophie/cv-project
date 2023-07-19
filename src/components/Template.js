@@ -151,12 +151,11 @@ function Template({ showButtons }) {
                 <p className="title">
                   {capitalise(info.degree)} | {capitalise(info.field)}
                 </p>
-
-                <p>{capitalise(info.school)}</p>
                 <p>
                   ({info.dateFrom} -{" "}
                   {info.stillStudying ? "Present" : info.dateUntil})
                 </p>
+                <p>{capitalise(info.school)}</p>
 
                 <Button
                   show={showButtons}
@@ -194,9 +193,10 @@ function Template({ showButtons }) {
           <div className="info">
             {work.map((info) => (
               <div key={info.id} className="component">
-                <p className="title">
-                  {capitalise(info.jobTitle)} | ({info.dateFrom} -{" "}
-                  {info.current ? "Current" : info.dateUntil})
+                <p className="title">{capitalise(info.jobTitle)}</p>
+                <p>
+                  ({info.dateFrom} - {info.current ? "Current" : info.dateUntil}
+                  )
                 </p>
                 <p>{capitalise(info.company)}</p>
 

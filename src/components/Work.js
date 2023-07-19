@@ -42,7 +42,7 @@ function Work({
       dateFrom: "",
       dateUntil: "",
       current: false,
-      comapny: "",
+      company: "",
       description: "",
       id: uniqid(),
     };
@@ -85,7 +85,7 @@ function Work({
             type="text"
             id="company"
             name="company"
-            checked={workData.company}
+            value={workData.company}
             onChange={handleInput}
             required
           />

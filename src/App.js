@@ -44,8 +44,12 @@ function App() {
   return (
     <div className="container">
       <Template showButtons={showButtons} />
-      <button onClick={toggleButtons}>Preview</button>
-      <button onClick={saveAsPDF}>Save as pdf</button>
+      <div className="btn-container">
+        <button onClick={toggleButtons}>Preview</button>
+        <button onClick={saveAsPDF} className="save-btn">
+          <i className="fa-solid fa-download"></i>Save as pdf
+        </button>
+      </div>
       <Footer />
     </div>
   );

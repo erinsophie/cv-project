@@ -179,7 +179,7 @@ button {
 .name-title {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   font-weight: 500;
 }
 
@@ -196,11 +196,12 @@ button {
 .contact-data {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .contact-data input {
   width: 100%;
+  height: 25px;
 }
 
 .contact-data > div {
@@ -256,6 +257,20 @@ button {
   resize: none;
   padding: 10px;
   border: 1px solid var(--dark-grey);
+}
+
+/* buttons */
+
+.btn-container {
+  display: flex;
+  gap: 15px;
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.save-btn {
+  display: flex;
+  gap: 5px;
 }
 
 /* footer */
