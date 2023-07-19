@@ -1,6 +1,6 @@
 # CV project
 
-## [Live Demo](https://erinsophie.github.io/cv-project/)
+## [Live Demo](https://incomparable-axolotl-f2880c.netlify.app)
 
 ![CV](./src/img/cv-project.png)
 
