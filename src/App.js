@@ -17,6 +17,7 @@ function App() {
     setMode(mode === 'none' ? 'preview' : 'none');
   }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const generate = async () => {
       if (mode === 'download') {
