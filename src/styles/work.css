@@ -1,0 +1,11 @@
+/* work section */
+
+.duties-list {
+  padding: 5px;
+}
+
+.work-form textarea {
+  resize: none;
+  padding: 10px;
+  border: 1px solid var(--dark-grey);
+}

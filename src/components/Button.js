@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/button.css';
 
 function Button({ show, className, onClick, children }) {
   if (!show) return null;

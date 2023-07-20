@@ -1,0 +1,45 @@
+/* buttons */
+
+button {
+  background-color: transparent;
+  border: 1px solid var(--dark-grey);
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.btn-container {
+  display: flex;
+  gap: 15px;
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.save-btn {
+  display: flex;
+  gap: 5px;
+}
+
+.add-btn {
+  width: 8%;
+  font-size: 0.8rem;
+  justify-self: flex-start;
+}
+
+.delete-btn,
+.edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn {
+  width: 25px;
+  height: 25px;
+}
+
+.edit-btn {
+  font-size: 0.9rem;
+  width: 50px;
+  height: 25px;
+}

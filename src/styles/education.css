@@ -1,0 +1,16 @@
+/* education section */
+
+.date-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.date-container div {
+  display: flex;
+  gap: 5px;
+}
+
+.education-form select {
+  border-bottom: 1px solid var(--dark-grey);
+}

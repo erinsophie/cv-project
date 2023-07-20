@@ -1,0 +1,63 @@
+.title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.skills-list li:hover,
+.component:hover {
+  background-color: rgba(207, 207, 207, 0.5);
+}
+
+.skills-form input,
+.education-form input,
+.work-form input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid var(--dark-grey);
+}
+
+.education-form select,
+.work-form textarea {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 20px;
+  gap: 15px;
+  border: 1px solid var(--dark-grey);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  gap: 25px;
+}
+
+.input-data {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.edit-delete-container {
+  display: flex;
+  gap: 8px;
+}
+
+.component {
+  display: flex;
+  justify-content: space-between;
+}
