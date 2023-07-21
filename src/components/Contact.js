@@ -55,7 +55,7 @@ function Contact() {
         <div>
           <i className="fa-solid fa-phone"></i>
           <input
-            type="text"
+            type="tel"
             name="number"
             value={contactInfo.number}
             onChange={handleInput}
