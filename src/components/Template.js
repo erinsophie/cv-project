@@ -3,8 +3,8 @@ import Skills from './Skills';
 import Education from './Education';
 import Work from './Work';
 import Contact from './Contact';
-import uniqid from 'uniqid';
 import Button from './Button';
+import uniqid from 'uniqid';
 
 function Template({ showButtons }) {
   const [skills, setSkills] = useState([]);

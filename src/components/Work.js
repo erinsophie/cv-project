@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/work.css';
+import '../styles/Work.css';
 import Button from './Button';
 import uniqid from 'uniqid';
 

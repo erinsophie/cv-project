@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './styles/index.css';
+import './styles/App.css';
 import Template from './components/Template';
 import Footer from './components/Footer';
 import html2canvas from 'html2canvas';

@@ -1,3 +1,26 @@
+/* cv template */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--light-grey);
+}
+
+.cv-template {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 35px;
+  color: var(--dark-grey);
+  background-color: var(--beige);
+  width: 90%;
+}
+
 .title {
   font-size: 1.2rem;
   font-weight: 500;
