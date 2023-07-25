@@ -1,46 +1,46 @@
 /* contact section */
 
 .contact-section {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  color: var(--dark-grey);
-}
-
-.contact-section input {
-  background-color: transparent;
-  border: none;
-  outline: none;
-}
-
-.name-title {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  font-weight: 500;
-}
-
-.name-input {
-  font-size: 1.8rem;
-}
-
-.current-title {
-  font-size: 1.3rem;
-}
-
-.contact-data {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.contact-data input {
-  width: 100%;
-  height: 25px;
-}
-
-.contact-data > div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--dark-grey);
+  }
+  
+  .contact-section input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  .name-title {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-weight: 500;
+  }
+  
+  .name-input {
+    font-size: 1.8rem;
+  }
+  
+  .current-title {
+    font-size: 1.3rem;
+  }
+  
+  .contact-data {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .contact-data input {
+    width: 100%;
+    height: 25px;
+  }
+  
+  .contact-data > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
