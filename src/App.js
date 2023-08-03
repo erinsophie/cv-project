@@ -9,15 +9,11 @@ function App() {
   const [showButtons, setShowButtons] = useState(true);
   const [mode, setMode] = useState('none');
 
-  console.log('mode:');
-  console.log(mode);
-
   function toggleButtons() {
     setShowButtons((prev) => !prev);
     setMode(mode === 'none' ? 'preview' : 'none');
   }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const generate = async () => {
       if (mode === 'download') {
